@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     setUser({ email, password });
     setUserToLocalStorage({ name: email, email, password });
-    navigate("/dashboard");
+    navigate("/product");
   };
 
   return (

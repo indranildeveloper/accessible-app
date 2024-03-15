@@ -9,8 +9,8 @@ const Navbar = () => {
     ? [
         {
           id: 1,
-          title: "Dashboard",
-          link: "/dashboard",
+          title: "Product",
+          link: "/product",
         },
       ]
     : [

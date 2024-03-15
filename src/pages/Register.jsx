@@ -16,7 +16,7 @@ const Register = () => {
     e.preventDefault();
     setUser({ name, email, password });
     setUserToLocalStorage({ name, email, password });
-    navigate("/dashboard");
+    navigate("/product");
   };
 
   return (

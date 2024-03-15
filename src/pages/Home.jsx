@@ -15,7 +15,7 @@ const HomePage = () => {
           Welcome to Home Page
         </h1>
         {user ? (
-          <p>Please go to Dashboard to continue.</p>
+          <p>Please go to Product page to continue.</p>
         ) : (
           <p>Please Register or Log In to continue.</p>
         )}

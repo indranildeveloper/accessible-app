@@ -2,13 +2,13 @@ import { Fragment, useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { UserContext } from "../context/UserContext";
 
-const Dashboard = () => {
+const Product = () => {
   const { user, handleLogout } = useContext(UserContext);
 
   return (
     <Fragment>
       <Helmet>
-        <title>Dashboard Page</title>
+        <title>Product Page</title>
       </Helmet>
       <main className="mt-8 flex flex-col gap-4">
         <h1 className="text-4xl text-center" role="heading">
@@ -17,6 +17,10 @@ const Dashboard = () => {
         <p className="text-center text-lg mt-4">
           You are logged in successfully!
         </p>
+        <p className="text-center text-lg mt-4">
+          You can browse the products here!
+        </p>
+
         <button
           type="button"
           onClick={handleLogout}
@@ -31,4 +35,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Product;
