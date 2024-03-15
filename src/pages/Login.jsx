@@ -1,18 +1,21 @@
 import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const { setUser, setUserToLocalStorage } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser({ email, password });
-    setUserToLocalStorage({ email, password });
+    setUserToLocalStorage({ name: email, email, password });
+    navigate("/dashboard");
   };
 
   return (
@@ -32,6 +35,7 @@ const Login = () => {
               className="border mt-1 p-2 rounded-md outline-blue-600"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className="flex flex-col">
@@ -42,6 +46,7 @@ const Login = () => {
               className="border mt-1 p-2 rounded-md outline-blue-600"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <button

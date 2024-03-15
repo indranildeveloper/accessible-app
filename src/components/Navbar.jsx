@@ -1,7 +1,31 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { NAV_ITEMS } from "../config";
+import { UserContext } from "../context/UserContext";
 
 const Navbar = () => {
+  const { user } = useContext(UserContext);
+
+  const NAV_ITEMS = user.email
+    ? [
+        {
+          id: 1,
+          title: "Dashboard",
+          link: "/dashboard",
+        },
+      ]
+    : [
+        {
+          id: 1,
+          title: "Log In",
+          link: "/login",
+        },
+        {
+          id: 2,
+          title: "Register",
+          link: "/register",
+        },
+      ];
+
   return (
     <nav className="flex container mx-auto justify-between items-center border-b py-4">
       <div className="flex justify-center items-center gap-2">
@@ -15,10 +39,10 @@ const Navbar = () => {
             key={item.id}
             to={item.link}
             className={({ isActive }) =>
-              `text-sm font-semibold px-4 py-2 rounded-md hover:bg-gray-200 transition-all duration-300 ${
+              `text-sm font-semibold px-4 py-2 rounded-md  transition-all duration-300 ${
                 isActive
                   ? "bg-blue-600 text-white hover:bg-blue-500"
-                  : "bg-gray-100"
+                  : "bg-gray-100 hover:bg-gray-200"
               }`
             }
           >

@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { UserContext } from "../context/UserContext";
 
@@ -8,12 +8,15 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const { setUser, setUserToLocalStorage } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser({ name, email, password });
     setUserToLocalStorage({ name, email, password });
+    navigate("/dashboard");
   };
 
   return (
@@ -32,6 +35,7 @@ const Register = () => {
               className="border mt-1 p-2 rounded-md outline-blue-600"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
           </div>
           <div className="flex flex-col">
@@ -42,6 +46,7 @@ const Register = () => {
               className="border mt-1 p-2 rounded-md outline-blue-600"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className="flex flex-col">
@@ -52,6 +57,7 @@ const Register = () => {
               className="border mt-1 p-2 rounded-md outline-blue-600"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <button

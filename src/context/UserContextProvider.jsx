@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
 
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
+  useEffect(() => {
+    const initialUser = JSON.parse(localStorage.getItem("user")) ?? {};
+    setUser(initialUser);
+  }, []);
+
   const setUserToLocalStorage = (userData) => {
-    console.log(userData);
-    if (Object.keys(user).length === 0) return;
+    if (!userData) return;
 
     localStorage.setItem("user", JSON.stringify(userData));
   };
 
+  const handleLogout = () => {
+    setUser({});
+    localStorage.setItem("user", "{}");
+  };
+
   return (
-    <UserContext.Provider value={{ user, setUser, setUserToLocalStorage }}>
+    <UserContext.Provider
+      value={{ user, setUser, setUserToLocalStorage, handleLogout }}
+    >
       {children}
     </UserContext.Provider>
   );
