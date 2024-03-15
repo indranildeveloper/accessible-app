@@ -1,7 +1,20 @@
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { setUser, setUserToLocalStorage } = useContext(UserContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setUser({ email, password });
+    setUserToLocalStorage({ email, password });
+  };
+
   return (
     <>
       <Helmet>
@@ -10,13 +23,15 @@ const Login = () => {
 
       <div className="p-8 border mt-8  w-[40vw] mx-auto rounded-md">
         <h1 className="text-center text-3xl mt-4">Log In</h1>
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
-              className="border mt-1 p-2 rounded-md focus:ring-1 focus:ring-blue-600 ring-offset-2 outline-blue-600"
+              className="border mt-1 p-2 rounded-md outline-blue-600"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="flex flex-col">
@@ -24,7 +39,9 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              className="border mt-1 p-2 rounded-md focus:ring-1 focus:ring-blue-600 ring-offset-2 outline-blue-600"
+              className="border mt-1 p-2 rounded-md outline-blue-600"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button

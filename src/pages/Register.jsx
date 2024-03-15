@@ -1,7 +1,21 @@
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { UserContext } from "../context/UserContext";
 
 const Register = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { setUser, setUserToLocalStorage } = useContext(UserContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setUser({ name, email, password });
+    setUserToLocalStorage({ name, email, password });
+  };
+
   return (
     <>
       <Helmet>
@@ -9,13 +23,15 @@ const Register = () => {
       </Helmet>
       <div className="p-8 border mt-8  w-[40vw] mx-auto rounded-md">
         <h1 className="text-center text-3xl mt-4">Register</h1>
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label htmlFor="name">Name</label>
             <input
               type="text"
               id="name"
-              className="border mt-1 p-2 rounded-md focus:ring-1 focus:ring-blue-600 ring-offset-2 outline-blue-600"
+              className="border mt-1 p-2 rounded-md outline-blue-600"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="flex flex-col">
@@ -23,7 +39,9 @@ const Register = () => {
             <input
               type="email"
               id="email"
-              className="border mt-1 p-2 rounded-md focus:ring-1 focus:ring-blue-600 ring-offset-2 outline-blue-600"
+              className="border mt-1 p-2 rounded-md outline-blue-600"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="flex flex-col">
@@ -31,7 +49,9 @@ const Register = () => {
             <input
               type="password"
               id="password"
-              className="border mt-1 p-2 rounded-md focus:ring-1 focus:ring-blue-600 ring-offset-2 outline-blue-600"
+              className="border mt-1 p-2 rounded-md outline-blue-600"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button
