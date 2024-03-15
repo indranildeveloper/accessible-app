@@ -1,8 +1,14 @@
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/Navbar";
+
 const App = () => {
   return (
-    <div>
-      <h1 className="text-blue-600">App</h1>
-    </div>
+    <>
+      <Navbar />
+      <div className="container mx-auto">
+        <Outlet />
+      </div>
+    </>
   );
 };
 
