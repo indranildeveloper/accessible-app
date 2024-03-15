@@ -11,7 +11,7 @@ const UserContextProvider = ({ children }) => {
 
   const setUserToLocalStorage = (userData) => {
     if (!userData) return;
-
+    // Saving users to localStorage for mock backend
     localStorage.setItem("user", JSON.stringify(userData));
   };
 

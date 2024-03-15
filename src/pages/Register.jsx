@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, Fragment } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { UserContext } from "../context/UserContext";
@@ -20,11 +20,11 @@ const Register = () => {
   };
 
   return (
-    <>
+    <Fragment>
       <Helmet>
         <title>Register Page</title>
       </Helmet>
-      <div className="p-8 border mt-8  w-[40vw] mx-auto rounded-md">
+      <main className="p-8 border mt-8  w-[40vw] mx-auto rounded-md">
         <h1 className="text-center text-3xl mt-4">Register</h1>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col">
@@ -36,6 +36,9 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              aria-label="Name"
+              aria-required="true"
+              autoComplete="name"
             />
           </div>
           <div className="flex flex-col">
@@ -47,6 +50,9 @@ const Register = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              aria-label="Email"
+              aria-required="true"
+              autoComplete="email"
             />
           </div>
           <div className="flex flex-col">
@@ -58,13 +64,18 @@ const Register = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              aria-label="Password"
+              aria-required="true"
+              autoComplete="new-password"
             />
           </div>
           <button
             type="submit"
             className="text-sm font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-500 transition-all duration-300"
+            role="button"
+            aria-describedby="Register Button"
           >
-            Submit
+            Register
           </button>
         </form>
 
@@ -79,8 +90,8 @@ const Register = () => {
             </Link>
           </span>
         </p>
-      </div>
-    </>
+      </main>
+    </Fragment>
   );
 };
 
