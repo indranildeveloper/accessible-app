@@ -1,8 +1,25 @@
-# React + Vite
+# Accessible React Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a react application built with following proper `a11y` guidelines.
 
-Currently, two official plugins are available:
+## Running the application locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. To run the application make sure that the system has `NodeJS`, `npm` installed.
+
+2. Install `Yarn`
+
+```
+npm install -g yarn
+```
+
+3. Installing the dependencies. Go to the root of the project and run.
+
+```
+yarn install
+```
+
+4. Run the application locally.
+
+```
+yarn dev
+```
