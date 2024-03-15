@@ -23,3 +23,10 @@ yarn install
 ```
 yarn dev
 ```
+
+## Routes
+
+1. Home Page -> `http://localhost:3000/`
+2. Register Page -> `http://localhost:3000/register`
+3. Login Page -> `http://localhost:3000/login`
+4. Product Page (Protected route, user needs to be logged in) -> `http://localhost:3000/product`
