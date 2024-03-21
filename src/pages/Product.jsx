@@ -11,13 +11,13 @@ const Product = () => {
         <title>Product Page</title>
       </Helmet>
       <main className="mt-8 flex flex-col gap-4">
-        <h1 className="text-4xl text-center" role="heading">
+        <h1 className="text-4xl text-center" role="heading" tabIndex="0">
           Welcome {user.email}
         </h1>
-        <p className="text-center text-lg mt-4">
+        <p className="text-center text-lg mt-4" tabIndex="0">
           You are logged in successfully!
         </p>
-        <p className="text-center text-lg mt-4">
+        <p className="text-center text-lg mt-4" tabIndex="0">
           You can browse the products here!
         </p>
 

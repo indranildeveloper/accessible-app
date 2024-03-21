@@ -25,7 +25,7 @@ const Login = () => {
       </Helmet>
 
       <main className="p-8 border mt-8  w-[40vw] mx-auto rounded-md">
-        <h1 className="text-center text-3xl mt-4" role="heading">
+        <h1 className="text-center text-3xl mt-4" role="heading" tabIndex="0">
           Log In
         </h1>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
@@ -67,7 +67,7 @@ const Login = () => {
           </button>
         </form>
 
-        <p className="mt-4">
+        <p className="mt-4" tabIndex="0">
           Do not have an account?{" "}
           <span>
             <Link

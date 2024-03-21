@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 const NotFoundPage = () => {
   return (
     <main className="mt-8 flex flex-col gap-4">
-      <h1 className="text-4xl text-center font-bold">404, Not Found!</h1>
-      <p className="text-lg text-center">
+      <h1 className="text-4xl text-center font-bold" tabIndex="0">
+        404, Not Found!
+      </h1>
+      <p className="text-lg text-center" tabIndex="0">
         The page you are looking for does not exists!
       </p>
       <Link

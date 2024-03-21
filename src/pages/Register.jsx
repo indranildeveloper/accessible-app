@@ -25,7 +25,9 @@ const Register = () => {
         <title>Register Page</title>
       </Helmet>
       <main className="p-8 border mt-8  w-[40vw] mx-auto rounded-md">
-        <h1 className="text-center text-3xl mt-4">Register</h1>
+        <h1 className="text-center text-3xl mt-4" tabIndex="0">
+          Register
+        </h1>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label htmlFor="name">Name</label>
@@ -79,7 +81,7 @@ const Register = () => {
           </button>
         </form>
 
-        <p className="mt-4">
+        <p className="mt-4" tabIndex="0">
           Already have an account?{" "}
           <span>
             <Link

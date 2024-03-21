@@ -44,7 +44,7 @@ const Navbar = () => {
 
       <ul className="flex gap-4">
         {NAV_ITEMS.map((item) => (
-          <li key={item.id}>
+          <li key={item.id} role="navigation">
             <NavLink
               to={item.link}
               className={({ isActive }) =>
