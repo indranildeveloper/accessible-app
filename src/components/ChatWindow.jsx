@@ -27,7 +27,7 @@ const ChatWindow = () => {
               key={message.id}
               className="border max-w-96 mt-auto rounded-md px-4 py-2"
             >
-              <p tabIndex="2">{message.message}</p>
+              <p tabIndex="0">{message.message}</p>
             </li>
           ))}
         </ul>

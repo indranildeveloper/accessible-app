@@ -6,14 +6,14 @@ const Sidebar = () => {
         <button
           type="button"
           className="w-full p-2 rounded-md bg-blue-600 text-white"
-          tabIndex="10"
+          tabIndex="0"
         >
           Active Chat
         </button>
         <button
           type="button"
           className="w-full p-2 rounded-md border"
-          tabIndex="10"
+          tabIndex="0"
         >
           Inactive Chat
         </button>
