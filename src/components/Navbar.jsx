@@ -27,7 +27,7 @@ const Navbar = () => {
       ];
 
   return (
-    <header className="border-b">
+    <header className="border-b px-4 sm:px-0">
       <nav
         className="flex container mx-auto justify-between items-center h-16"
         role="navigation"
@@ -63,18 +63,26 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
-
-          <li>
-            <button
-              type="button"
-              onClick={handleLogout}
-              className="text-sm text-white font-semibold px-4 py-2 rounded-md  transition-all duration-300 bg-rose-600"
-              role="button"
-              aria-description="Log Out Button"
-            >
-              Log Out
-            </button>
-          </li>
+          {user.email && (
+            <>
+              <li>
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="text-sm text-white font-semibold px-4 py-2 rounded-md  transition-all duration-300 bg-rose-600"
+                  role="button"
+                  aria-description="Log Out Button"
+                >
+                  Log Out
+                </button>
+              </li>
+              <li className="ml-2">
+                <button className="border rounded-full h-10 w-10 flex items-center justify-center">
+                  {user.email.split("")[0].toUpperCase()}
+                </button>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </header>

@@ -24,7 +24,7 @@ const Login = () => {
         <title>Login Page</title>
       </Helmet>
 
-      <main className="p-8 border mt-8  w-[40vw] mx-auto rounded-md">
+      <main className="p-8 border mt-8 h-fit w-[40vw] mx-auto rounded-md">
         <h1 className="text-center text-3xl mt-4" role="heading" tabIndex="0">
           Log In
         </h1>
@@ -38,7 +38,7 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              aria-label="Email"
+              aria-label="Please enter email for login."
               aria-required="true"
               autoComplete="email"
             />
@@ -52,7 +52,7 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              aria-label="Password"
+              aria-label="Please enter password for login."
               aria-required="true"
               autoComplete="current-password"
             />

@@ -23,7 +23,7 @@ const Register = () => {
       <Helmet>
         <title>Register Page</title>
       </Helmet>
-      <main className="p-8 border mt-8  w-[40vw] mx-auto rounded-md">
+      <main className="p-8 border h-fit mt-8 w-[40vw] mx-auto rounded-md">
         <h1 className="text-center text-3xl mt-4" tabIndex="0">
           Register
         </h1>
@@ -37,7 +37,7 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              aria-label="Name"
+              aria-label="Please enter your name."
               aria-required="true"
               autoComplete="name"
             />
@@ -51,7 +51,7 @@ const Register = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              aria-label="Email"
+              aria-label="Please enter your email."
               aria-required="true"
               autoComplete="email"
             />
@@ -65,7 +65,7 @@ const Register = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              aria-label="Password"
+              aria-label="Please enter your password."
               aria-required="true"
               autoComplete="new-password"
             />

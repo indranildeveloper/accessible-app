@@ -3,6 +3,7 @@ import { UserContext } from "./UserContext";
 
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [chatMessages, setChatMessages] = useState([]);
 
   useEffect(() => {
     const initialUser = JSON.parse(localStorage.getItem("user")) ?? {};
@@ -22,7 +23,14 @@ const UserContextProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ user, setUser, setUserToLocalStorage, handleLogout }}
+      value={{
+        user,
+        setUser,
+        setUserToLocalStorage,
+        handleLogout,
+        chatMessages,
+        setChatMessages,
+      }}
     >
       {children}
     </UserContext.Provider>
