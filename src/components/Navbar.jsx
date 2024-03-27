@@ -37,17 +37,19 @@ const Navbar = () => {
                 Product
               </NavLink>
             </li>
-            <li className="flex gap-2 items-center">
+            <li className="flex gap-4 items-center">
               <button
                 type="button"
                 onClick={handleLogout}
-                className="text-sm text-white font-semibold px-4 py-2 rounded-md  transition-all duration-300 bg-rose-600"
+                className="text-sm text-white font-semibold px-4 py-2 rounded-md  transition-all duration-300 bg-rose-600 hover:bg-rose-500"
                 role="button"
-                aria-label="Log Out Button"
               >
                 Log Out
               </button>
-              <button className="border rounded-full h-8 w-8 flex items-center justify-center">
+              <button
+                className="border rounded-full h-8 w-8 flex items-center justify-center"
+                aria-label="user icon button"
+              >
                 {user.email.split("")[0].toUpperCase()}
               </button>
             </li>

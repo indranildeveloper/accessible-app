@@ -73,7 +73,6 @@ const Register = () => {
             type="submit"
             className="text-sm font-semibold px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-500 transition-all duration-300"
             role="button"
-            aria-label="Register Button"
           >
             Register
           </button>
