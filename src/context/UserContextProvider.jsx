@@ -6,7 +6,8 @@ const UserContextProvider = ({ children }) => {
   const [chatMessages, setChatMessages] = useState([]);
 
   useEffect(() => {
-    const initialUser = JSON.parse(localStorage.getItem("user")) ?? {};
+    const initialUser =
+      JSON.parse(localStorage.getItem("logged-in-user")) ?? {};
     setUser(initialUser);
   }, []);
 
