@@ -5,34 +5,9 @@ import { UserContext } from "../context/UserContext";
 const Navbar = () => {
   const { user, handleLogout } = useContext(UserContext);
 
-  const NAV_ITEMS = user.email
-    ? [
-        {
-          id: 1,
-          title: "Product",
-          link: "/product",
-        },
-      ]
-    : [
-        {
-          id: 2,
-          title: "Log In",
-          link: "/login",
-        },
-        {
-          id: 3,
-          title: "Register",
-          link: "/register",
-        },
-      ];
-
   return (
     <header className="border-b px-4 sm:px-0">
-      <nav
-        className="flex container mx-auto justify-between items-center h-16"
-        role="navigation"
-        aria-description="The navbar for the application"
-      >
+      <nav className="flex container mx-auto justify-between items-center h-16">
         <Link to="/" className="flex justify-center items-center gap-2">
           <img
             src="/logo.svg"
@@ -43,14 +18,14 @@ const Navbar = () => {
           <h4 className="font-semibold">Company Name</h4>
         </Link>
 
-        <ul
-          className="flex justify-center items-center gap-4"
-          role="navigation"
-        >
-          {NAV_ITEMS.map((item) => (
-            <li key={item.id} className="flex">
+        {user.email ? (
+          <ul
+            className="flex justify-center items-center gap-4"
+            aria-label="Main Navigation"
+          >
+            <li className="flex">
               <NavLink
-                to={item.link}
+                to="/product"
                 className={({ isActive }) =>
                   `text-sm font-semibold px-4 py-2 rounded-md  transition-all duration-300 ${
                     isActive
@@ -59,11 +34,9 @@ const Navbar = () => {
                   }`
                 }
               >
-                {item.title}
+                Product
               </NavLink>
             </li>
-          ))}
-          {user.email && (
             <li className="flex gap-2 items-center">
               <button
                 type="button"
@@ -78,8 +51,42 @@ const Navbar = () => {
                 {user.email.split("")[0].toUpperCase()}
               </button>
             </li>
-          )}
-        </ul>
+          </ul>
+        ) : (
+          <ul
+            className="flex justify-center items-center gap-4"
+            aria-label="Main Navigation"
+          >
+            <li className="flex">
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  `text-sm font-semibold px-4 py-2 rounded-md  transition-all duration-300 ${
+                    isActive
+                      ? "bg-blue-600 text-white hover:bg-blue-500"
+                      : "bg-gray-100 hover:bg-gray-200"
+                  }`
+                }
+              >
+                Login
+              </NavLink>
+            </li>
+            <li className="flex">
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  `text-sm font-semibold px-4 py-2 rounded-md  transition-all duration-300 ${
+                    isActive
+                      ? "bg-blue-600 text-white hover:bg-blue-500"
+                      : "bg-gray-100 hover:bg-gray-200"
+                  }`
+                }
+              >
+                Register
+              </NavLink>
+            </li>
+          </ul>
+        )}
       </nav>
     </header>
   );

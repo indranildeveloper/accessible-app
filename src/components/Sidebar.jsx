@@ -1,6 +1,6 @@
 const Sidebar = () => {
   return (
-    <section className="w-[300px] border-r p-2 hidden sm:block">
+    <section className="w-[300px] border-r p-4 hidden sm:block">
       <h2 className="text-center font-bold text-lg">Chat with GPT</h2>
       <div className="mt-4 flex gap-2 flex-col">
         <button

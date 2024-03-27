@@ -10,15 +10,15 @@ const UserContextProvider = ({ children }) => {
     setUser(initialUser);
   }, []);
 
-  const setUserToLocalStorage = (userData) => {
+  const setUserToLocalStorage = (name, userData) => {
     if (!userData) return;
     // Saving users to localStorage for mock backend
-    localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem(name, JSON.stringify(userData));
   };
 
   const handleLogout = () => {
     setUser({});
-    localStorage.setItem("user", "{}");
+    localStorage.setItem("logged-in-user", "{}");
   };
 
   return (
